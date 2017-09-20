@@ -61,4 +61,7 @@
   <ItemGroup>
     <Build Include="Product.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="SqlDatabase.publish.xml" />
+  </ItemGroup>
 </Project>
