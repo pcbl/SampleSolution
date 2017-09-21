@@ -8,11 +8,6 @@ namespace DataService
     {
         private readonly IRepository<Product> _repository;
 
-        public ProductService()
-        {
-            _repository = new ProductRepository();
-        }
-
         public ProductService(IRepository<Product> repository)
         {
             _repository = repository;
