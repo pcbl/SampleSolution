@@ -1,9 +1,11 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using ClientApplication.ProductDataService;
 
 namespace ClientApplication
 {
-    public class MainWindowViewModel
+    public class MainWindowViewModel: INotifyPropertyChanged
     {
         public MainWindowViewModel()
         {
@@ -19,11 +21,23 @@ namespace ClientApplication
                     Products.Add(product);
                 }
             });
+
+            UserName = "StartName";
+
+            ChangeUserName = new RelayCommand((parameter) =>
+            {
+                UserName = $"User_{DateTime.Now.Ticks}";
+            });
         }
 
         public ObservableCollection<Product> Products { get; set; }
 
         public RelayCommand Load { get; set; }
 
+        public RelayCommand ChangeUserName { get; set; }
+
+        public string UserName { get; set; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

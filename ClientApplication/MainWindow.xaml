@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <StackPanel>
-        <ListBox Height="250" ItemsSource="{Binding Products}">
+    <DockPanel>
+        <ListBox Height="200" ItemsSource="{Binding Products}" DockPanel.Dock="Top">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -17,6 +17,10 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button Command="{Binding Load}">Load</Button>
-    </StackPanel>
+        <StackPanel>
+            <Button Command="{Binding Load}">Load</Button>
+            <StackPanel Orientation="Horizontal"><TextBlock>UserName</TextBlock><TextBox Text="{Binding UserName}"></TextBox></StackPanel>
+            <Button Command="{Binding ChangeUserName}">Change User Name</Button>
+        </StackPanel>
+    </DockPanel>
 </Window>
